@@ -1,23 +1,39 @@
 
 import './App.css';
+import BeerCardContainer from './component/BeerCardContainer/BeerCardContainer';
+import { useState, useEffect } from "react";
 
-function App() {
+const App = () => {
+
+  const [ beers, setBeers ] = useState();
+
+  const getBeers = () => {
+    fetch("https://api.punkapi.com/v2/beers")
+    .then((res) =>{
+      return res.json()
+    })
+    .then((data) =>{
+      setBeers(data)
+      console.log(data)
+    })
+  }
+
+  useEffect(getBeers, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+
       </header>
+
+    <nav>
+
+    </nav>
+
+    <main>
+      {beers && <BeerCardContainer  beersArr={beers}/>}
+    </main>
+
     </div>
   );
 }
