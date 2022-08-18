@@ -2,6 +2,7 @@
 import './App.css';
 import BeerCardContainer from './component/BeerCardContainer/BeerCardContainer';
 import { useState, useEffect } from "react";
+import Heading from './component/Heading/Heading';
 
 const App = () => {
 
@@ -22,8 +23,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <header>
-
+      <header className='header'>
+        <Heading />
       </header>
 
     <nav>

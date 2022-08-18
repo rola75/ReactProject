@@ -14,11 +14,9 @@ const BeerCardContainer = (props) => {
 
     return(
         <>
-            <div className="container">
-                <div className="container__card">
-                    {beerProfile}
-                </div>
-         </div>
+            <div className="container__card">
+                {beerProfile}
+            </div>
         </>
     )
 

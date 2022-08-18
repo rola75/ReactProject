@@ -1,0 +1,7 @@
+@use "../../variables/variables.scss";
+
+.heading_container {
+    text-align: center;
+    background-color: variables.$background-color;
+    color: variables.$heading-font-color;
+}
