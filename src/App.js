@@ -1,8 +1,9 @@
 
 import './App.css';
 import BeerCardContainer from './component/BeerCardContainer/BeerCardContainer';
-import { useState, useEffect } from "react";
+import Nav from './component/Nav/Nav';
 import Heading from './component/Heading/Heading';
+import { useState, useEffect } from "react";
 
 const App = () => {
 
@@ -21,6 +22,8 @@ const App = () => {
 
   useEffect(getBeers, [])
 
+  
+
   return (
     <div className="App">
       <header className='header'>
@@ -29,8 +32,9 @@ const App = () => {
 
       
       <section className='main__section'>
-        <nav>
-
+        
+        <nav className='nav'>
+          <Nav beersArr={beers}/>
         </nav>
 
         <main className='main__card-render'>

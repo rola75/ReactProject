@@ -11,6 +11,19 @@
   align-items: center;
 }
 
+.main__section {
+  display: flex;
+  width: 100%;
+
+}
+
+.nav {
+  width: 25%;
+  background-color: #b19f9e;
+  border:2px solid #479761;
+}
+
 .main__card-render {
   background-color: #19181A;
+  width: 75%;
 }
