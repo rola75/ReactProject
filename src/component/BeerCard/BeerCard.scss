@@ -1,0 +1,28 @@
+@use "../../variables/variables.scss";
+
+.card {
+    border: 20px double variables.$border-color;
+    background-clip: padding-box;
+    background-color: variables.$card-background;
+    height: 400px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.card__heading {
+    text-decoration: underline;
+}
+
+
+.card__img {
+    width: auto;
+    height: 28vh;
+}
+.card__tagline {
+    font-weight: bold;
+    font-style: italic;
+}
+
