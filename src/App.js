@@ -27,14 +27,16 @@ const App = () => {
         <Heading />
       </header>
 
-    <nav>
+      
+      <section className='main__section'>
+        <nav>
 
-    </nav>
+        </nav>
 
-    <main>
-      {beers && <BeerCardContainer  beersArr={beers}/>}
-    </main>
-
+        <main className='main__card-render'>
+          {beers && <BeerCardContainer  beersArr={beers}/>}
+        </main>
+      </section>
     </div>
   );
 }
