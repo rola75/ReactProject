@@ -16,13 +16,11 @@ const App = () => {
     })
     .then((data) =>{
       setBeers(data)
-      console.log(data)
     })
   }
 
   useEffect(getBeers, [])
 
-  
 
   return (
     <div className="App">
@@ -34,7 +32,7 @@ const App = () => {
       <section className='main__section'>
         
         <nav className='nav'>
-          <Nav beersArr={beers}/>
+          {beers && <Nav setBeers={setBeers} beersArr={beers}/>}
         </nav>
 
         <main className='main__card-render'>

@@ -1,19 +1,35 @@
-import HighAcidityFilter from "../HighAcidityFilter/HighAcidityFilter";
+import { useEffect, useRef } from "react";
 
 const Nav = (props) => {
-    const {beersArr} = props;
+    const {beersArr, setBeers} = props;
 
-    const filterABV = beersArr.filter((beer) => {
+    const unfilterBeersArr = useRef([])
+    useEffect(() =>{
+        unfilterBeersArr.current = beersArr;
+    },)
+    
+
+    // const handleOnClick = () =>{
+        
+    // }
+    
+    const filterArr = unfilterBeersArr.current.filter((beer) => {
         return beer.abv > 6;
     })
-    console.log(filterABV)
 
+    const filterAcidityArr = unfilterBeersArr.current.filter((beer) => {
+        return beer.ph < 4;
+    })
+
+    
+
+   
     return (
         <div>
             <p>search</p>
-            <p>High Alcohol</p>
+            <p onClick={() => setBeers(filterArr)}>High Alcohol</p>
             <p>Classic Range</p>
-            <HighAcidityFilter />
+            <p onClick={() => setBeers(filterAcidityArr)}>High Acidity</p>
         </div>
     )
 }
