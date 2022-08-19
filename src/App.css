@@ -25,7 +25,7 @@
 }
 
 .sidebar{
-  width: 25%;
+  width: 20%;
   height: auto;
   background-color: transparent;
   display: flex;
@@ -35,7 +35,7 @@
 
 .main__card-render {
   background-color: transparent;
-  width: 75%;
+  width: 80%;
   height: 100%;
 }
 
@@ -47,7 +47,7 @@
   color: #cebc81;
 }
 
-@media screen and (max-width: 740px){
+@media screen and (max-width: 970px){
   
   .main__section {
     display: flex;
@@ -70,5 +70,23 @@
     height: 100%;
   }
   
+  .nav_filter {
+    width: 100%;
+  }
+  
+  .nav_container > div {
+    display: flex;
+    justify-content: space-around;
+  }
 
+}
+
+@media screen and (max-width: 660px){
+
+  .nav_container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
 }
