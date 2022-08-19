@@ -1,7 +1,7 @@
 
 import './App.css';
 import BeerCardContainer from './component/BeerCardContainer/BeerCardContainer';
-import Nav from './component/Nav/Nav';
+import NavSideBar from './component/NavSideBar/NavSideBar';
 import Heading from './component/Heading/Heading';
 import { useState, useEffect } from "react";
 
@@ -31,9 +31,11 @@ const App = () => {
       
       <section className='main__section'>
         
-        <nav className='nav'>
-          {beers && <Nav setBeers={setBeers} beersArr={beers}/>}
-        </nav>
+        <div className='sidebar'>
+          <nav className='nav_filter'>
+            {beers && <NavSideBar setBeers={setBeers} beersArr={beers}/>}
+          </nav>
+        </div>
 
         <main className='main__card-render'>
           {beers && <BeerCardContainer  beersArr={beers}/>}
