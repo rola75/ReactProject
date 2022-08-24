@@ -1,13 +1,21 @@
 import { useEffect, useRef } from "react";
 
 const NavSideBar = (props) => {
-  const { beersArr, setBeers } = props;
-
+  const { beersArr, setBeers, newArr, customBeer } = props;
+  console.log("nav", customBeer);
   const unfilterBeersArr = useRef([]);
 
   useEffect(() => {
     unfilterBeersArr.current = beersArr;
   }, []);
+
+
+  const newBeers = customBeer.beers.map((beer) => {
+    console.log("newBeers",beer);
+    return beer
+  })
+
+
 
   const allBeers = unfilterBeersArr.current.map((beer) => {
     return beer;
@@ -24,6 +32,8 @@ const NavSideBar = (props) => {
   const filterAcidityArr = unfilterBeersArr.current.filter((beer) => {
     return beer.ph < 4;
   });
+
+  
 
   const handleSearchInputs = (event) => {
     const searchText = event.target.value.toLowerCase();
@@ -42,6 +52,7 @@ const NavSideBar = (props) => {
             <p onClick={() => setBeers(filterArr)}>High Alcohol</p>
             <p onClick={() => setBeers(filterClassic)}>Classic Range</p>
             <p onClick={() => setBeers(filterAcidityArr)}>High Acidity</p>
+            <button onClick={() => setBeers(newBeers)}>API</button>
         </div>
     </nav>
   );

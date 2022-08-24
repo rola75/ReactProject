@@ -6,8 +6,12 @@ const BeerCardContainer = (props) => {
 
     const beerProfile = beersArr.map((beer) =>{
         const{ name, tagline, image_url } = beer;
-        
-        return <BeerCard key={beer.id} name={name} image_url={image_url} tagline={tagline} />
+        // let hover = true;
+        return (
+            <>
+            <BeerCard key={beer.id} name={name} image_url={image_url} tagline={tagline}/>
+            </>
+        )
     })
    
    

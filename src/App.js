@@ -5,6 +5,7 @@ import NavSideBar from './component/NavSideBar/NavSideBar';
 import Heading from './component/Heading/Heading';
 import { useState, useEffect } from "react";
 
+let newArr = [];
 const App = () => {
 
   const [ beers, setBeers ] = useState();
@@ -15,12 +16,26 @@ const App = () => {
       return res.json()
     })
     .then((data) =>{
+      getNewBeers()
       setBeers(data)
     })
   }
+  useEffect(getBeers, []);
 
-  useEffect(getBeers, [])
+  const getNewBeers = () => {
+    fetch('http://localhost:3007/beers')
+    .then((res) =>{
+      return res.json()
+    })
+    .then((data) => {
+       newArr = data;
+       console.log("data", data);
+    })
+  }
 
+useEffect(getNewBeers, []);
+
+ 
 
   return (
     <div className="App">
@@ -33,7 +48,7 @@ const App = () => {
         
         <div className='sidebar'>
           <nav className='nav_filter'>
-            {beers && <NavSideBar setBeers={setBeers} beersArr={beers}/>}
+            {beers && <NavSideBar customBeer={newArr} setBeers={setBeers} beersArr={beers}/>}
           </nav>
         </div>
 
