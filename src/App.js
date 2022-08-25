@@ -5,9 +5,10 @@ import NavSideBar from './component/NavSideBar/NavSideBar';
 import Heading from './component/Heading/Heading';
 import { useState, useEffect } from "react";
 
-let newArr = [];
-const App = () => {
 
+const App = () => {
+  
+  const [ newBeers, setNewBeers ] = useState();
   const [ beers, setBeers ] = useState();
 
   const getBeers = () => {
@@ -28,8 +29,7 @@ const App = () => {
       return res.json()
     })
     .then((data) => {
-       newArr = data;
-       console.log("data", data);
+       setNewBeers(data);
     })
   }
 
@@ -48,7 +48,7 @@ useEffect(getNewBeers, []);
         
         <div className='sidebar'>
           <nav className='nav_filter'>
-            {beers && <NavSideBar customBeer={newArr} setBeers={setBeers} beersArr={beers}/>}
+            {beers && <NavSideBar customBeer={newBeers} setBeers={setBeers} beersArr={beers}/>}
           </nav>
         </div>
 

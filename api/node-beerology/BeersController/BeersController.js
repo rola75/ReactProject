@@ -1,99 +1,22 @@
+import { Beer } from "../beersModel/beersModel.js"
 
-const myBeerArr =[
-    {
-        id: 26,
-        name: "Beer A",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-    {
-        id: 27,
-        name: "Beer B",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-    {
-        id: 28,
-        name: "Beer C",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-    {
-        id: 29,
-        name: "Beer D",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-    {
-        id: 30,
-        name: "Beer E",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-    {
-        id: 31,
-        name: "Beer F",
-        tagline: "Beer A tagline",
-        first_brewed: "09/2006",
-        description: "Beer A description.",
-        image_url: "https://images.punkapi.com/v2/keg.png",
-        abv: 4.6,
-        ph: 4.6,
-        food_pairing: [
-            "Pizza",
-            "Chips",
-            "Hamburgers"
-        ]
-    },
-];
+export const addBeers = (req, res) => {
+    Beer.create({ name: req.body.name, image_url: req.body.image_url, tagline: req.body.tagline })
+      .then(() => {
+        res.status(201).send({ message: "Created" });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-export const getBeersArr = (req, res) => {
-    res.status(200).send({
-        beers: myBeerArr
-    });
-}
+  export const getBeers = (req, res) => {
+    Beer.findAll()
+    .then(beers => {
+      res.status(200).send(beers)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  };
+
