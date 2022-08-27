@@ -46,6 +46,14 @@
   color: #cebc81;
 }
 
+.form{
+  margin: 10px 0 0 0;
+  font-weight: bold;
+  width: 100%;
+  height: auto;
+  color: #cebc81;
+}
+
 @media screen and (max-width: 970px){
   
   .main__section {

@@ -3,6 +3,7 @@ import './App.css';
 import BeerCardContainer from './component/BeerCardContainer/BeerCardContainer';
 import NavSideBar from './component/NavSideBar/NavSideBar';
 import Heading from './component/Heading/Heading';
+import NewBeerForm from './component/NewBeerForm/NewBeerForm';
 import { useState, useEffect } from "react";
 
 
@@ -47,8 +48,9 @@ useEffect(getNewBeers, []);
       <section className='main__section'>
         
         <div className='sidebar'>
-          <nav className='nav_filter'>
+          <nav className='nav_filter'> 
             {beers && <NavSideBar customBeer={newBeers} setBeers={setBeers} beersArr={beers}/>}
+            <NewBeerForm />
           </nav>
         </div>
 
