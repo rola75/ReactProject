@@ -5,7 +5,7 @@ import cors from 'cors';
 import { sequelize } from "./db/index.js";
 
 const app = express();
-const port = 3007;
+const port = process.env.PORT || 3007;
 
 sequelize.sync()
 .then((result => {
