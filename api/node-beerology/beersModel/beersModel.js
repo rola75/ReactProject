@@ -16,7 +16,7 @@ export const Beer = sequelize.define("beers", {
 
     image_url: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
 
     tagline: {
