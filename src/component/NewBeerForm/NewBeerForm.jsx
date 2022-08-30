@@ -21,7 +21,7 @@ const NewBeerForm = () => {
           });
           let resJson = await res.json();
           console.log("response", resJson)
-          if (res.status === 200) {
+          if (res.status === 201) {
             setName("");
             setImage("")
             setTagLine("");
